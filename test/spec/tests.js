@@ -20,7 +20,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0, placeholder:true}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list2" jqyoui-droppable="{index: 0}"></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush(); // http://goo.gl/XEss1
     expect(scope.list1.length).toBe(1);
@@ -38,7 +39,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0, placeholder:true}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list2" jqyoui-droppable></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush();
     expect(scope.list1.length).toBe(1);
@@ -56,7 +58,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list2" jqyoui-droppable="{index: 0}"></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush();
     expect(scope.list1.length).toBe(0);
@@ -73,7 +76,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list2" jqyoui-droppable></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush();
     expect(scope.list1.length).toBe(0);
@@ -90,7 +94,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="' + scope.list2[0].drag + '" ng-model="list2" jqyoui-droppable="{index: 0}">' + scope.list2[0].title + '</div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush();
     expect(scope.list1.length).toBe(1);
@@ -108,7 +113,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list1[0].drag + '" ng-model="list1" jqyoui-draggable="{index: 0, placeholder: \'keep\'}">' + scope.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list2" jqyoui-droppable></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush();
     expect(scope.list1.length).toBe(1);
@@ -127,7 +133,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.foo.list1[0].drag + '" ng-model="foo.list1" jqyoui-draggable="{index: 0, placeholder:true}">' + scope.foo.list1[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="foo.list2" jqyoui-droppable="{index: 0}"></div>').data('$scope', scope),
       document.createEvent('Event'),
-      {}
+      {},
+      scope
     );
     timeout.flush(); // http://goo.gl/XEss1
     expect(scope.foo.list1.length).toBe(1);
@@ -147,7 +154,8 @@ describe('Service: ngDragDropService', function() {
       $('<div data-drag="' + scope.list[0].drag + '" ng-model="list" jqyoui-draggable="{index: 0}">' + scope.list[0].title + '</div>').data('$scope', scope),
       $('<div data-drop="true" ng-model="list" jqyoui-droppable="{index: 0}"></div>').data('$scope', scope2),
       document.createEvent('Event'),
-      {}
+      {},
+      scope2
     );
      timeout.flush();
      expect(scope.list.length).toBe(0);

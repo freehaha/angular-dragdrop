@@ -45,7 +45,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
       scope[callbackName].apply(scope, args);
     };
 
-    this.invokeDrop = function ($draggable, $droppable, event, ui) {
+    this.invokeDrop = function ($draggable, $droppable, event, ui, droppableScope) {
       var dragModel = '',
         dropModel = '',
         dragSettings = {},
@@ -56,7 +56,6 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
         dragModelValue,
         dropModelValue,
         $droppableDraggable = null,
-        droppableScope = $droppable.scope(),
         draggableScope = $draggable.scope();
 
       dragModel = $draggable.ngattr('ng-model');
@@ -271,7 +270,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
                 },
                 drop: function(event, ui) {
                   if (angular.element(ui.draggable).ngattr('ng-model') && attrs.ngModel) {
-                    ngDragDropService.invokeDrop(angular.element(ui.draggable), angular.element(this), event, ui);
+                    ngDragDropService.invokeDrop(angular.element(ui.draggable), angular.element(this), event, ui, scope);
                   } else {
                     ngDragDropService.callEventCallback(scope, (scope.$eval(angular.element(this).attr('jqyoui-droppable')) || []).onDrop, event, ui);                    
                   }
